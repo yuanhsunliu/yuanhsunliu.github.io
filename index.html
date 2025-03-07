@@ -59,6 +59,7 @@
             }
 
             const credentialID = new Uint8Array(JSON.parse(storedCredential));
+            alert(credentialID);
 
             const publicKey = {
                 challenge: Uint8Array.from("randomChallenge", c => c.charCodeAt(0)),
