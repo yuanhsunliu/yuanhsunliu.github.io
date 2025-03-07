@@ -10,6 +10,7 @@
 
 <label>用戶名：</label>
 <input type="text" id="username" placeholder="輸入你的帳號"><br><br>
+<input type="text" id="password" placeholder="輸入你的密碼"><br><br>
 
 <button onclick="registerWebAuthn()">註冊 WebAuthn</button>
 <button onclick="loginWithWebAuthn()">使用生物辨識登入</button>
@@ -59,7 +60,7 @@
             }
 
             const credentialID = new Uint8Array(JSON.parse(storedCredential));
-            alert(credentialID);
+            //alert(credentialID);
 
             const publicKey = {
                 challenge: Uint8Array.from("randomChallenge", c => c.charCodeAt(0)),
