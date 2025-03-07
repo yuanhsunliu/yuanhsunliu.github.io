@@ -40,7 +40,9 @@
             };
 
             const credential = await navigator.credentials.create({ publicKey });
-            localStorage.setItem("webauthnCredential", JSON.stringify(credential));
+            const credentialID = new Uint8Array(credential.rawId);
+            localStorage.setItem("credentialID", JSON.stringify(Array.from(credentialID)));
+
             document.getElementById("status").innerText = "✅ 註冊成功！";
         } catch (error) {
             console.error("註冊失敗:", error);
@@ -50,16 +52,18 @@
 
     async function loginWithWebAuthn() {
         try {
-            const storedCredential = localStorage.getItem("webauthnCredential");
+            const storedCredential = localStorage.getItem("credentialID");
             if (!storedCredential) {
                 alert("請先註冊 WebAuthn！");
                 return;
             }
 
+            const credentialID = new Uint8Array(JSON.parse(storedCredential));
+
             const publicKey = {
                 challenge: Uint8Array.from("randomChallenge", c => c.charCodeAt(0)),
                 allowCredentials: [{
-                    id: JSON.parse(storedCredential).rawId,
+                    id: credentialID,
                     type: "public-key",
                     transports: ["internal"]
                 }],
