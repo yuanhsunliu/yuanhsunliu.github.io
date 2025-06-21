@@ -1,1 +1,93 @@
-
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自我介紹</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: #18181b;
+      }
+      .animate-bounce3 {
+        animation: bounce 1s;
+        animation-iteration-count: 3;
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+          animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        50% {
+          transform: translateY(-25%);
+          animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex items-center justify-center bg-gray-900">
+    <div class="flex flex-col items-center">
+      <img
+        src="./avatar.jpg"
+        alt="avatar"
+        class="w-40 h-40 rounded-full shadow-lg border-4 border-gray-700 animate-bounce3 object-cover bg-gray-700"
+      />
+      <h1 class="mt-8 text-3xl font-bold text-gray-100 tracking-wide animate-fade-in">
+        Hi, Y
+      </h1>
+      <blockquote class="relative mt-8 px-8 py-6 bg-gray-800/70 border-l-4 border-blue-500 italic text-xl text-gray-100 shadow-lg animate-fade-in max-w-xl">
+        <span class="text-4xl leading-none text-blue-400 font-serif absolute -left-6 top-2">“</span>
+        用 20 年寫程式的經驗，替機器加上一點智慧──當然，不保證它們不會跟我搶午餐！
+        <span class="text-4xl leading-none text-blue-400 font-serif absolute -right-6 bottom-2">”</span>
+      </blockquote>
+      <div class="flex flex-col items-center mt-12 animate-fade-in">
+        <h2 class="text-xl text-blue-300 font-semibold mb-2 tracking-wide">生活裡的小熱情</h2>
+        <ul class="flex flex-row gap-8">
+          <li class="flex flex-col items-center bg-gray-800/80 rounded-2xl shadow-md px-6 py-4 w-auto">
+            <span class="flex items-center justify-center w-14 h-14 rounded-full bg-blue-900 mb-2 text-3xl">🤖</span>
+            <span class="text-gray-200 font-semibold text-lg whitespace-nowrap">Hi, AI. 請坐</span>
+          </li>
+          <li class="flex flex-col items-center bg-gray-800/80 rounded-2xl shadow-md px-6 py-4 w-32 group">
+            <span class="flex items-center justify-center w-14 h-14 rounded-full bg-blue-900 mb-2 text-3xl transform transition group-hover:scale-125 duration-200">📷</span>
+            <a href="https://yhliu.smugmug.com/" target="_blank" class="text-gray-200 font-semibold hover:text-blue-200 transition transform group-hover:scale-125 duration-200">光影回憶</a>
+          </li>
+        </ul>
+      </div>
+      <div class="flex flex-col items-center mt-8 animate-fade-in">
+        <h2 class="text-xl text-green-300 font-semibold mb-2 tracking-wide">最近有興趣的事</h2>
+        <ul class="flex flex-row gap-8">
+          <li class="flex flex-col items-center bg-gray-800/80 rounded-2xl shadow-md px-6 py-4 w-auto">
+            <span class="flex items-center justify-center w-14 h-14 rounded-full bg-green-900 mb-2 text-3xl">🧑‍🏫</span>
+            <span class="text-gray-200 font-semibold text-lg whitespace-nowrap">上課深入了解 Copilot Prompt 與 Instruction</span>
+            <span class="text-gray-400 text-xs mt-1">AI 工具的底層邏輯與應用</span>
+          </li>
+          <li class="flex flex-col items-center bg-gray-800/80 rounded-2xl shadow-md px-6 py-4 w-auto">
+            <span class="flex items-center justify-center w-14 h-14 rounded-full bg-green-900 mb-2 text-3xl">🤖</span>
+            <span class="text-gray-200 font-semibold text-lg whitespace-nowrap">Agentic AI 可能如何影響 Web 介面互動</span>
+            <span class="text-gray-400 text-xs mt-1">自動化、個人化、主動協作的新體驗</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      // 只保留 fade-in 動畫設定
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              'fade-in': 'fadeIn 1.5s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: 0 },
+                '100%': { opacity: 1 },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </body>
+</html>
